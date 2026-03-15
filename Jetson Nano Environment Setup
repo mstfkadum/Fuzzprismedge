@@ -1,0 +1,28 @@
+# enviremnet setup
+sudo apt-get update
+sudo apt-get install python3.6 python3.6-venv python3.6-dev -y
+python3.6 -m venv fuzzedge_gpu_env
+source fuzzedge_gpu_env/bin/activate
+pip install --upgrade pip
+pip install Cython numpy
+pip install torch-1.10.0-cp36-cp36m-linux_aarch64.whl
+export OPENBLAS_CORETYPE=ARMV8
+--------
+# open new pyhton file , save the code in it name it test.py
+import torch
+
+print("=== Jetson Nano GPU Check ===")
+print(f"CUDA Available: {torch.cuda.is_available()}")
+
+if torch.cuda.is_available():
+    print(f"GPU Device Name: {torch.cuda.get_device_name(0)}")
+---------
+python test.py
+# you should see something like this 
+---------
+(fuzzedge_gpu_env) mustafa@mustafa-desktop:~$ python test.py
+=== Jetson Nano GPU Check ===
+CUDA Available: True
+GPU Device Name: NVIDIA Tegra X1
+(fuzzedge_gpu_env) mustafa@mustafa-desktop:~$
+---------
