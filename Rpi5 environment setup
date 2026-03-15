@@ -1,0 +1,10 @@
+sudo apt update && sudo apt upgrade
+python -m venv fuzzedge_env
+source fuzzedge_env/bin/activate
+pip install scikit-fuzzy tensorflow numpy psutil
+pip install scipy
+pip install packaging
+pip install networkx
+pip install tflite-runtime pillow requests
+pip install "numpy<2"
+pip install psutil
