@@ -26,3 +26,16 @@ CUDA Available: True
 GPU Device Name: NVIDIA Tegra X1
 (fuzzedge_gpu_env) mustafa@mustafa-desktop:~$
 ---------
+sudo apt-get install -y libjpeg-dev zlib1g-dev libpython3-dev libavcodec-dev libavformat-dev libswscale-dev
+git clone --branch v0.11.1 https://github.com/pytorch/vision torchvisioncd torchvision
+export BUILD_VERSION=0.11.1
+python setup.py install
+cd ..
+pip install Pillow==8.4.0
+pip install scikit-fuzzy
+sudo apt-get install -y gfortran libopenblas-dev liblapack-dev
+pip install scipy==1.5.4
+pip install packaging
+pip install networkx
+-----------
+# now your jetson nano edge device is ready for runnning the code 
